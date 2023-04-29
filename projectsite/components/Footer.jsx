@@ -1,8 +1,7 @@
 import React from "react";
-import { BsDiscord } from "react-icons/bs";
 import { GrMail } from "react-icons/gr";
-import {FaGithubSquare} from "react-icons/fa"
-import {FaLinkedin} from "react-icons/fa"
+import {FaGithubSquare} from "react-icons/fa";
+import {FaLinkedin} from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const Footer = () => {
@@ -13,10 +12,18 @@ const Footer = () => {
 
                 <motion.a
                     target="_blank"
-                    href="https://github.com/mchen04/CitrusHackProject"
+                    href="https://discord.gg/Ugjp6Us"
                     className="text-ncc-brown hover:text-ncc-green mr-8"
                 >
                     <FaGithubSquare size={20}/>
+                </motion.a>
+
+                <motion.a
+                target="_blank"
+                href="https://discord.gg/Ugjp6Us"
+                className="text-ncc-brown hover:text-ncc-green "
+                >
+                <FaLinkedin size={20} />
                 </motion.a>
 
                 <motion.a
@@ -30,7 +37,7 @@ const Footer = () => {
             </div>
 
             <div className="text-ncc-brown mb-10">
-                For Citrus Hack 2023
+                Citrus Hack 2023: Nolan Chu, Michael Chen, Freddy Song, and Sazen Shakya
             </div>
         </div>
     </footer>

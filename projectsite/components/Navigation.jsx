@@ -1,11 +1,11 @@
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import {FaEnvelope} from "react-icons/fa"
-import {FaGithubSquare} from "react-icons/fa"
-import {FaLinkedin} from "react-icons/fa"
+import {FaEnvelope} from "react-icons/fa";
+import {FaGithubSquare} from "react-icons/fa";
 import { motion } from "framer-motion";
+
 
 const Navigation = () => {
     return (
