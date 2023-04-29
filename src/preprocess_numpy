@@ -1,0 +1,31 @@
+import os
+import numpy as np
+from PIL import Image
+import matplotlib.pyplot as plt
+
+def preprocess(directory):
+    images = []
+    labels = []
+    classes = os.listdir(directory)
+    for class_num, class_name in enumerate(classes):
+        class_dir = os.path.join(directory, class_name)
+        for image_file in os.listdir(class_dir):
+            image_path = os.path.join(class_dir, image_file)
+            with Image.open(image_path) as img:
+                img = img.convert('RGB').resize((25, 25))
+                images.append(np.array(img))
+                labels.append(class_num)
+    images = np.array(images)
+    labels = np.array(labels)
+    return images, labels
+
+# set the directory where your data is stored
+directory = '+'
+
+# preprocess the data
+train_data, train_labels = preprocess(os.path.join(directory, 'train'))
+test_data, test_labels = preprocess(os.path.join(directory, 'test'))
+
+# display the first image in the training data
+plt.imshow(train_data[0])
+plt.show()
