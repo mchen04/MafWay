@@ -5,7 +5,7 @@ from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 model = Sequential()
 
 # add a convolutional layer with 32 filters, a 3x3 kernel, and ReLU activation
-model.add(Conv2D(32, (3, 3), activation='relu', input_shape=(img_width, img_height, 3)))
+model.add(Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)))
 
 # add a max pooling layer
 model.add(MaxPooling2D(pool_size=(2, 2)))
