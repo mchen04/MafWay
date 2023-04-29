@@ -35,4 +35,4 @@ np.set_printoptions(precision=0)
 images_array = np.round(images_array).astype(int)
 
 # print shape of images array
-print(images_array[1])
+# print(images_array[1])
