@@ -4,8 +4,8 @@ import numpy as np
 import os
 
 # Set the path to the folder containing the pictures
-folder_path = '../CitrusHackProject-1/inputImages'
-output_folder = '../CitrusHackProject-1/outputImages'
+folder_path = '../CitrusHackProject/user_inputs/'
+output_folder = '../CitrusHackProject/processed_user_inputs/'
 
 # Create the output folder if it doesn't exist
 os.makedirs(output_folder, exist_ok=True)
