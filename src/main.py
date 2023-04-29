@@ -1,25 +1,7 @@
 import numpy as np
 import tensorflow as tf
-from preprocess_numpy import *
+from train_test_data import *
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
-
-# assume X_train and y_train are your training data
-X_train = images_array 
-y_train = np.ones(25112) 
-
-# split the data into training and testing sets
-num_samples = len(X_train)
-indices = np.arange(num_samples)
-np.random.shuffle(indices)
-
-train_size = int(0.8*num_samples)
-train_indices = indices[:train_size]
-test_indices = indices[train_size:]
-
-X_train_new = X_train[train_indices]
-y_train_new = y_train[train_indices]
-X_test = X_train[test_indices]
-y_test = y_train[test_indices]
 
 # build and compile the model
 model = tf.keras.Sequential([
@@ -36,3 +18,5 @@ model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy']
 
 # fit the model using the training data and evaluate it using the testing data
 model.fit(X_train_new, y_train_new, batch_size=32, epochs=10, validation_data=(X_test, y_test))
+
+model.save('model.h5')
