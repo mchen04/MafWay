@@ -6,20 +6,21 @@ import { motion } from "framer-motion";
 const Footer = () => {
   return (
         <div className="w-full h-auto flex flex-col items-center bg-ncc-beige">
-            <div className="w-full h-[.1rem] mb-2 bg-ncc-black"/>
-            <div className="h-14 flex flex-row items-center">
-
+            <div className="w-full h-[.2rem] mb-8 bg-ncc-black"/>
+            <div className="flex flex-row items-center justify-center -translate-y-3">
                 <motion.a
                     target="_blank"
-                    href="https://discord.gg/Ugjp6Us"
-                    className="text-ncc-brown hover:text-ncc-white "
+                    href="https://www.citrushack.com/"
+                    className="text-ncc-brown hover:text-ncc-brown "
+                    whileHover={{ scale: 1.2 }}
                 >
-                    <FaGithubSquare size={20}/>
+                    <div className="text-ncc-brown  flex flex-row">
+                        <img className="w-[35px] -translate-y-2 translate-x-2 " src="citrus.png"/>
+                        itrus Hack 2023
+                    </div>
+                   
                 </motion.a>
-            </div>
 
-            <div className="text-ncc-brown mb-10 -translate-y-2">
-                Citrus Hack 2023
             </div>
         </div>
   );
