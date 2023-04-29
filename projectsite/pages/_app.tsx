@@ -1,5 +1,5 @@
-import '@/styles/globals.css';
-import type { AppProps } from 'next/app';
+import '@/styles/globals.css'
+import type { AppProps } from 'next/app'
 import { Cormorant_Garamond } from 'next/font/google';
 
 const garamond = Cormorant_Garamond({
@@ -8,9 +8,9 @@ const garamond = Cormorant_Garamond({
 })
 
 export default function App({ Component, pageProps }: AppProps) {
-  return  (
-  <main className={garamond.className}>
-    <Component {...pageProps} />
-  </main>
+  return (
+    <main className={garamond.className}>
+        <Component {...pageProps} />
+    </main>
   );
 }
