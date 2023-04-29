@@ -1,31 +1,30 @@
-import os
-import numpy as np
 from PIL import Image
-import matplotlib.pyplot as plt
+import numpy as np
+import os
 
-def preprocess(directory):
-    images = []
-    labels = []
-    classes = os.listdir(directory)
-    for class_num, class_name in enumerate(classes):
-        class_dir = os.path.join(directory, class_name)
-        for image_file in os.listdir(class_dir):
-            image_path = os.path.join(class_dir, image_file)
-            with Image.open(image_path) as img:
-                img = img.convert('RGB').resize((25, 25))
-                images.append(np.array(img))
-                labels.append(class_num)
-    images = np.array(images)
-    labels = np.array(labels)
-    return images, labels
+# specify path to folder containing images
+folder_path = '../CitrusHackProject/+/'
 
-# set the directory where your data is stored
-directory = '+'
+# initialize empty list to store images
+images = []
 
-# preprocess the data
-train_data, train_labels = preprocess(os.path.join(directory, 'train'))
-test_data, test_labels = preprocess(os.path.join(directory, 'test'))
+# loop through images in folder
+for filename in os.listdir(folder_path):
+    if filename.endswith('.jpg'):
+        # open image using PIL
+        img = Image.open(os.path.join(folder_path, filename)).convert('L')
 
-# display the first image in the training data
-plt.imshow(train_data[0])
-plt.show()
+        # resize image to 28x28
+        img = img.resize((28, 28))
+
+        # convert image to numpy array
+        img_array = np.array(img)
+
+        # append image array to list
+        images.append(img_array)
+
+# convert list of images to numpy array
+images_array = np.array(images)
+
+# print shape of images array
+print(images_array.shape)
