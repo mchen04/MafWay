@@ -26,5 +26,13 @@ for filename in os.listdir(folder_path):
 # convert list of images to numpy array
 images_array = np.array(images)
 
+# normalize pixel values
+images_array = images_array / 255.0
+
+# reshape array and convert values to integers
+images_array = np.reshape(images_array, (25112, 28, 28, 1))
+np.set_printoptions(precision=0)
+images_array = np.round(images_array).astype(int)
+
 # print shape of images array
-print(images_array.shape)
+print(images_array[1])
