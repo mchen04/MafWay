@@ -6,18 +6,10 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div>
-      
-    <Image
-      src="/flowers1.jpeg"
-      alt="Field of Flowers"
-      layout="fill"
-      objectFit="cover"
-    >
-    </Image>
-    <Navigation/>
-    <MainGraphic/>
-    <Footer/>
+    <div className="w-full min-h-screen bg-ncc-beige">
+      <Navigation/>
+      <MainGraphic/>
+      <Footer/>
     </div>
   )
 }
