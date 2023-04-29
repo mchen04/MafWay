@@ -1,5 +1,6 @@
 import tensorflow as tf
 from tensorflow import keras
+from preprocess_numpy import *
 
 # Define the CNN model
 model = keras.Sequential([
