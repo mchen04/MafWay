@@ -14,8 +14,11 @@ All features of the program is imlemented in the website: (enter website url)
 
 ## Credit
 Michael Chen - https://github.com/mchen04
+
 Freddy Song - https://github.com/MrFrooty
+
 Nolan Chu - https://github.com/Nolancchu
+
 Sazen Shakya - https://github.com/sshakya03
 
 ## License
