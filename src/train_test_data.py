@@ -43,13 +43,14 @@ model = tf.keras.Sequential([
     Conv2D(filters=64, kernel_size=(3,3), activation='relu'),
     MaxPooling2D(pool_size=(2,2)),
     Flatten(),
-    Dense(128, activation='relu'),
+    Dense(64, activation='relu'),
+    Dense(32, activation='relu'),
     Dense(num_classes, activation='softmax')
 ])
 
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['categorical_accuracy'])
 
 # fit the model using the training data and evaluate it using the testing data
-model.fit(X_train, y_train, batch_size=32, epochs=10, validation_data=(X_test, y_test))
+model.fit(X_train, y_train, batch_size=120, epochs=10, validation_data=(X_test, y_test))
 
 model.save('model.h5')
