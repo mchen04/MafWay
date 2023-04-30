@@ -6,12 +6,15 @@ MafWays is an ambitious project driven by our passion for pushing the boundaries
 ## Installation
 1. Clone the project repository 
 
+```
 git clone https://github.com/mchen04/CitrusHackProject.git
+```
 
 2. Install the files on the requirements.txt
 
+```
 pip install -r requirements.txt
-
+```
 
 ## Usage
 All features of the program is imlemented in the website: (enter website url)
