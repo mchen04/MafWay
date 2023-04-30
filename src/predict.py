@@ -7,7 +7,7 @@ import keras
 model = keras.models.load_model('model.h5')
 
 # Load the input image and preprocess it
-input_image = "../CitrusHackProject/user_inputs/sin.jpg"
+input_image = "../CitrusHackProject/user_inputs/cos.jpg"
 processed_image = user_photo_processor.process_image(input_image)
 
 # Make a prediction on the input image
@@ -24,9 +24,3 @@ class_labels = ["-",",","!","(",")","[","]","{","}","+","=","0","1","2","3","4",
 predicted_class_label = class_labels[predicted_class_index]
 print("Predicted class: ", predicted_class_label)
 
-'''
-# Call the function to upload the text file
-filename = "predicted_class.txt"
-url = upload_text_file_to_cloudinary(predicted_class_label, filename)
-print("Uploaded file URL:", url)
-'''
