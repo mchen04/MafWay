@@ -23,15 +23,15 @@ const Navigation = () => {
 
         <div className="flex flex-row items-center justify-between ml-16 mr-32 bg-ncc-beige">
             <Navbar>
-            <Navbar.Brand href="#home" className="flex flex-col justify-center ml-7">
-                    <div className="text-6xl">
+                    <motion.ul
+                        className="text-6xl text-ncc-brown flex flex-col justify-center ml-7">
                         <span className={Int.className}>MAFWAY</span>
-                    </div>
+                    
 
-                    <div className="text-xl -translate-y-2">
-                        <span className={Int.className}>Making Math Easy</span>
-                    </div>
-            </Navbar.Brand>
+                        <div className="text-xl -translate-y-2">
+                            <span className={Int.className}>Making Math Easy</span>
+                        </div>
+                    </motion.ul>
             </Navbar>
 
             <div className="flex flex-row -translate-y-4">
@@ -40,10 +40,10 @@ const Navigation = () => {
                                 <motion.a
                                     target="_blank"
                                     href="https://github.com/mchen04/CitrusHackProject"
-                                    className="text-ncc-brown hover:text-ncc-brown mr-4"
+                                    className="text-ncc-brown hover:text-ncc-brown mr-2"
                                     whileHover={{ scale: 1.5 }}
                                 >
-                                    <FaGithubSquare size={45}/>
+                                    <FaGithubSquare size={60}/>
                                 </motion.a>
                             </Nav>
                         </Navbar>

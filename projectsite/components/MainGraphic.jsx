@@ -1,9 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { motion } from "framer-motion";
-import { FaReact } from "react-icons/fa";
-import { useState } from "react";
-import { NextPage } from "next";    
 
 const MainGraphic = () => {
 
@@ -11,11 +8,10 @@ const MainGraphic = () => {
         <div className="w-full h-full flex flex-row items-center">
             <div className="w-6/12 h-36 mt-24 mb-96 ml-12 flex flex-col items-center ">
                 <div className="text-3xl flex mt-16">Using Convolutional Neural Networks</div>
-                <div className="text-3xl flex">to Help you With your Math:</div>
-                <div className="text-xl flex mb-20">Upload your image below:</div>
+                <div className="text-3xl flex mb-16">to Help you With your Math:</div>
                 <motion.a
                 transition={{ type: "spring", stiffness: 500 }}
-                whileHover={{ scale: 1.15 }}
+                whileHover={{ scale: 1.15, }}
                 href={"https://legacy.reactjs.org/docs/getting-started.html"}
                 >
                     <div class="flex items-center justify-center">
@@ -30,10 +26,14 @@ const MainGraphic = () => {
                     </div> 
                 </motion.a>
             </div>
-            <div className="w-1 h-[32rem] ml-32  bg-ncc-brown "/>
-            <div className="mr-0">
-                <img className="w-[1000px]" src="phone.png" alt="phone" />
-            </div>
+            <div className="w-2 h-[32rem] ml-32 rounded-2xl bg-ncc-brown "/>
+            <motion.div
+                animate={{x:[400,300,200,150,100,60,20,10,0]}}
+            >
+                <div>
+                    <img className="w-[1000px]" src="phone.png" alt="phone" />
+                </div>
+            </motion.div>
         </div>
     )
 }
