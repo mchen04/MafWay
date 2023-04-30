@@ -52,7 +52,7 @@ images_array = np.array(images)
 labels_array = np.array(image_categories)
 
 # normalize pixel values
-images_array = images_array / 255.0
+images_array = images_array / 255.0 
 
 np.set_printoptions(precision=0)
 images_array = np.round(images_array).astype(int)
