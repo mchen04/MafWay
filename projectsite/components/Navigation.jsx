@@ -34,13 +34,14 @@ const Navigation = () => {
             </Navbar.Brand>
             </Navbar>
 
-            <div className="flex flex-row">
+            <div className="flex flex-row -translate-y-4">
                 <Navbar >
                             <Nav>
                                 <motion.a
                                     target="_blank"
                                     href="https://github.com/mchen04/CitrusHackProject"
-                                    className="text-ncc-brown hover:text-ncc-white -translate-y-2 mr-4"
+                                    className="text-ncc-brown hover:text-ncc-brown mr-4"
+                                    whileHover={{ scale: 1.5 }}
                                 >
                                     <FaGithubSquare size={45}/>
                                 </motion.a>
