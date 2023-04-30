@@ -1,13 +1,26 @@
-from keras.models import load_model
-from train_test_data import *
+import tensorflow as tf
+import numpy as np
+from PIL import Image
+import user_photo_processor
 
-model = load_model('model.h5')
+# Load the saved model
+model = tf.keras.models.load_model('model.h5')
 
-# generate predictions on test data
-predictions = model.predict(X_test)
+# Load the input image and preprocess it
+input_image = "../CitrusHackProject/user_inputs/Subtract#1.jpg"
+processed_image = user_photo_processor.process_image(input_image)
+processed_image = np.reshape(processed_image, (1, 28, 28, 1))
 
-# compare predicted labels with true labels
-accuracy = np.mean(predictions == y_test)
+# Make a prediction on the input image
+predictions = model.predict(processed_image)
 
-# print accuracy
-print("Accuracy: ", accuracy)
+# Get the predicted class index
+predicted_class_index = np.argmax(predictions[0])
+
+# Print the predicted class label
+class_labels = ["-",",","!","(",")","[","]","{","}","+","=","0","1","2","3","4","5","6","7","8","9","A","alpha","ascii_124","b","beta","C","cos","d","Delta","div",
+              "e","exists","f","forall","forward_slash","G","gamma","geq","gt","H","i","in","infty","int","j","k","l","lambda","ldots","leq","lim",
+              "log","lt","M","mu","N","neq","o","p","phi","pi","pm","prime","q","R","rightarrow","S","sigma","sin","sqrt","sum","T","tan","theta",
+              "times","u","v","w","X","y","z"]
+predicted_class_label = class_labels[predicted_class_index]
+print("Predicted class: ", predicted_class_label)
