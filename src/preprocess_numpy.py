@@ -13,15 +13,14 @@ labels = []
 image_categories = []
 
 # create dictionary mapping categories to numerical labels
-categories = ["-",",","!","(",")","[","]","{","}","+","=","0","1","2","3","4","5","6","7","8","9","A","alpha","ascii_124","b","beta","C","cos","d","Delta","div","e", 
-              "exists","f","forall","foward_slash","G","gamma","geq","gt","H","i","in","infty","int","j","k","l","lambda","idots","leq","lim","log","lt","M","mu","N", 
-              "neq","o","p","phi","pi","pm","prime","q","R","rightarrow","S","sigma","sin","sqrt","sum","T","tan","theta","times","u","v","w","X","y","z"]
-label_dict = {"-": 0, ",": 1, "!": 2, "(": 3, ")": 4, "[": 5, "]": 6, "{": 7, "}": 8, "+": 9, "=": 10, "0": 11, "1": 12, "2": 13, "3": 14, "4": 15, "5": 16, "6": 17, 
-              "7": 18, "8": 19, "9": 20, "A": 21, "alpha": 22, "ascii_124": 23, "b": 24, "beta": 25, "C": 26, "cos": 27, "d": 28, "Delta": 29, "div": 30, "e": 31,
-                "exists": 32, "f": 33, "forall": 34, "forward_slash": 35, "G": 36, "gamma": 37, "geq": 38, "gt": 39, "H": 40, "i": 41, "in": 42, "infty": 43, "int": 44, 
-                "j": 45, "k": 46, "l": 47, "lambda": 48, "ldots": 49, "leq": 50, "lim": 51, "log": 52, "lt": 53, "M": 54, "mu": 55, "N": 56, "neq": 57, "o": 58, "p": 59, 
-                "phi": 60, "pi": 61, "pm": 62, "prime": 63, "q": 64, "R": 65, "rightarrow": 66, "S": 67, "sigma": 68, "sin": 69, "sqrt": 70, "sum": 71, "T": 72, "tan": 73,
-                  "theta": 74, "times": 75, "u": 76, "v": 77, "w": 78, "X": 79, "y": 80, "z": 81}
+categories = ["-","!","(",")","[","]","+","=","0","1","2","3","4","5","6","7","8","9","A","b","C","cos","d","div",
+              "e","f","forward_slash","G","H","i","in","infty","int","j","k","l","lim",
+              "log","M","N","o","p","pi","q","R","rightarrow","S","sigma","sin","sqrt","sum","T","tan","theta",
+              "times","u","v","w","X","y","z"]
+label_dict = {"-": 0, "!": 1, "(": 2, ")": 3, "[": 4, "]": 5, "+": 6, "=": 7, "0": 8, "1": 9, "2": 10, "3": 11, "4": 12, "5": 13, "6": 14, 
+              "7": 15, "8": 16, "9": 17, "A": 18, "b": 19, "C": 20, "cos": 21, "d": 22, "div": 23, "e": 24, "f": 25, "forward_slash": 26, "G": 27, "H": 28, "i": 29, "in": 30, "infty": 31, "int": 32, 
+              "j": 33, "k": 34, "l": 35, "lim": 36, "log": 37, "M": 38, "N": 39, "o": 40, "p": 41, "pi": 42, "q": 43, "R": 44, "rightarrow": 45, "S": 46, "sigma": 47, "sin": 48, "sqrt": 49, "sum": 50, "T": 51, "tan": 52,
+              "theta": 53, "times": 54, "u": 55, "v": 56, "w": 57, "X": 58, "y": 59, "z": 60}
 
 i = 0
 # loop through subfolders in folder

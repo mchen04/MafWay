@@ -4,15 +4,15 @@ from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 from keras.utils import to_categorical
 from sklearn.model_selection import train_test_split
 
-num_classes = 82 
+num_classes = 61
 
 # assume X_train and y_train are your training data
 X_train = np.load('images_array.npy')
 y_train = np.load('labels_array.npy')
 
-categories = ["-",",","!","(",")","[","]","{","}","+","=","0","1","2","3","4","5","6","7","8","9","A","alpha","ascii_124","b","beta","C","cos","d","Delta","div",
-              "e","exists","f","forall","forward_slash","G","gamma","geq","gt","H","i","in","infty","int","j","k","l","lambda","ldots","leq","lim",
-              "log","lt","M","mu","N","neq","o","p","phi","pi","pm","prime","q","R","rightarrow","S","sigma","sin","sqrt","sum","T","tan","theta",
+categories = ["-","!","(",")","[","]","+","=","0","1","2","3","4","5","6","7","8","9","A","b","C","cos","d","div",
+              "e","f","forward_slash","G","H","i","in","infty","int","j","k","l","lim",
+              "log","M","N","o","p","pi","q","R","rightarrow","S","sigma","sin","sqrt","sum","T","tan","theta",
               "times","u","v","w","X","y","z"]
 
 # create dictionary mapping categories to numerical labels
@@ -43,8 +43,9 @@ model = tf.keras.Sequential([
     Conv2D(filters=64, kernel_size=(3,3), activation='relu'),
     MaxPooling2D(pool_size=(2,2)),
     Flatten(),
+    Dense(128, activation='relu'),
     Dense(64, activation='relu'),
-    Dense(32, activation='relu'),
+
     Dense(num_classes, activation='softmax')
 ])
 
