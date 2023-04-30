@@ -8,7 +8,7 @@ const MainGraphic = () => {
         <div className="w-full h-full flex flex-row items-center">
             <div className="w-6/12 h-36 mt-24 mb-96 ml-12 flex flex-col items-center ">
                 <div className="text-3xl flex mt-20">Using Convolutional Neural Networks</div>
-                <div className="text-3xl flex mb-10">to Help you With your Math:</div>
+                <div className="text-3xl flex mb-10">to Help You With Your Math:</div>
                 <motion.a
                 transition={{ type: "spring", stiffness: 500 }}
                 whileHover={{ scale: 1.15, }}
