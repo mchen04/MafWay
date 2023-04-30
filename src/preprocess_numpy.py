@@ -52,7 +52,7 @@ for subfolder in os.listdir(folder_path):
 
 # convert list of images to numpy array
 images_array = np.array(images)
-y_train = np.array(image_categories)
+labels_array = np.array(image_categories)
 
 # normalize pixel values
 images_array = images_array / 255.0
@@ -63,5 +63,10 @@ np.set_printoptions(precision=0)
 images_array = np.round(images_array).astype(int)
 
 # print shape of images array, y_train, and one-hot labels array
+
+# save the array to a file
+np.save('images_array.npy', images_array)
+np.save('labels_array.npy', labels_array)
+
 print(images_array.shape)
-print(y_train.shape)
+print(labels_array.shape)
