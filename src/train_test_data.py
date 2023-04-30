@@ -38,7 +38,7 @@ y_train = y_train[train_indices]
 
 # build and compile the model
 model = tf.keras.Sequential([
-    Conv2D(filters=32, kernel_size=(3,3), activation='relu', input_shape=(28,28,1)),
+    Conv2D(filters=32, kernel_size=(3,3), activation='relu', input_shape=(45,45,1)),
     MaxPooling2D(pool_size=(2,2)),
     Conv2D(filters=64, kernel_size=(3,3), activation='relu'),
     MaxPooling2D(pool_size=(2,2)),
