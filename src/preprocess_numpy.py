@@ -1,6 +1,7 @@
 from PIL import Image
 import numpy as np
 import os
+import random
 from keras.utils import to_categorical
 
 # specify path to folder containing images
@@ -23,7 +24,6 @@ label_dict = {"-": 0, ",": 1, "!": 2, "(": 3, ")": 4, "[": 5, "]": 6, "{": 7, "}
                   "theta": 74, "times": 75, "u": 76, "v": 77, "w": 78, "X": 79, "y": 80, "z": 81}
 
 i = 0
-
 # loop through subfolders in folder
 for subfolder in os.listdir(folder_path):
     subfolder_path = os.path.join(folder_path, subfolder)
@@ -32,9 +32,6 @@ for subfolder in os.listdir(folder_path):
         if filename.endswith('.jpg'):
             # open image using PIL
             img = Image.open(os.path.join(subfolder_path, filename)).convert('L')
-
-            # resize image to 28x28
-            img = img.resize((28, 28))
 
             # convert image to numpy array
             img_array = np.array(img)
@@ -57,16 +54,11 @@ labels_array = np.array(image_categories)
 # normalize pixel values
 images_array = images_array / 255.0
 
-# reshape array and convert values to integers
-images_array = np.reshape(images_array, (len(images), 28, 28, 1))
 np.set_printoptions(precision=0)
 images_array = np.round(images_array).astype(int)
-
-# print shape of images array, y_train, and one-hot labels array
 
 # save the array to a file
 np.save('images_array.npy', images_array)
 np.save('labels_array.npy', labels_array)
 
-print(images_array.shape)
-print(labels_array.shape)
+print("completed")
