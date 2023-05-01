@@ -7,7 +7,7 @@ import keras
 model = keras.models.load_model('model.h5')
 
 # Load the input image and preprocess it
-input_image = "user_inputs/question.jpg"
+input_image = "user_inputs/sin.jpg"
 processed_image = user_photo_processor.process_image(input_image)
 
 # Make a prediction on the input image

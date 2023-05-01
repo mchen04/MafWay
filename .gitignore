@@ -2,5 +2,3 @@ src/__pycache__/
 .DS_Store
 images_array.npy
 labels_array.npy
-user_inputs
-processed_user_inputs

@@ -4,10 +4,10 @@ import os
 
 def process_image(image_path):
     # Open the image file
-    image = Image.open(image_path).convert('L')
+    image = Image.open(image_path)
 
     # Converted image to 45 x 45
-    image = image.resize((45,45))
+    image = image.resize((45,45)).convert('L')
 
     # Convert the black and white image to a NumPy array
     image_array = np.array(image)
