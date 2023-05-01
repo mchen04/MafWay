@@ -14,7 +14,6 @@ def process_image(image_path):
 
     # Normalize pixel values
     image_array = image_array / 255.0
-    image_array = np.round(image_array).astype(int)
     image_array = np.reshape(image_array, (1, 45, 45, 1))
 
     filename = os.path.basename(image_path)
