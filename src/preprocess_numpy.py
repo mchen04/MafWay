@@ -48,8 +48,6 @@ for subfolder in os.listdir(folder_path):
     #prints progress
     print(subfolder)
 
-print(images.size)
-
 # convert list of images to numpy array
 images_array = np.array(images)
 labels_array = np.array(labels)
