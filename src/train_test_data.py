@@ -102,11 +102,11 @@ for fold_idx, (train_index, test_index) in enumerate(kf.split(X)):
 mean_accuracy = np.mean(accuracy_scores)
 
 # Print the validation loss, validation accuracy, test loss, and test accuracy for each epoch
-for i, acc in enumerate(history.history['acc']):
+for i, acc in enumerate(history.history['accuracy']):
     val_acc = history.history['val_accuracy'][i]
     val_loss = history.history['val_loss'][i]
     train_loss = history.history['loss'][i]
-    train_acc = history.history['acc'][i]
+    train_acc = history.history['accuracy'][i]
     print(f"Epoch {i+1}: val_loss={val_loss:.4f}, val_acc={val_acc:.4f}, " 
           f"train_loss={train_loss:.4f}, train_acc={train_acc:.4f}, " 
           )
