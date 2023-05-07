@@ -54,6 +54,7 @@ kf = KFold(n_splits=num_folds, shuffle=True)
 
 # Initialize an empty list to store the accuracy scores for each fold
 accuracy_scores = []
+models = []
 
 # Loop over each fold
 for fold_idx, (train_index, test_index) in enumerate(kf.split(X)):
@@ -84,30 +85,36 @@ for fold_idx, (train_index, test_index) in enumerate(kf.split(X)):
                   )
 
     # Define the callback
-    reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=5, verbose=2, min_lr=0.00001)
+    reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.25, patience=5, verbose=2, min_lr=0.00001)
 
     # Train the model
     history = model.fit(datagen.flow(X_train.reshape((-1, 45, 45, 1)), y_train, batch_size=64),
-                        epochs=20,
+                        epochs=35,
                         validation_data=(X_val.reshape((-1, 45, 45, 1)), y_val),
                         callbacks=[reduce_lr])
 
     # Evaluate the model on the test set
     test_loss, test_acc = model.evaluate(X_test.reshape((-1, 45, 45, 1)), y_test)
+    
+    # Print the validation loss, validation accuracy, test loss, and test accuracy for each epoch
+    for i, acc in enumerate(history.history['accuracy']):
+        val_acc = history.history['val_accuracy'][i]
+        val_loss = history.history['val_loss'][i]
+        train_loss = history.history['loss'][i]
+        train_acc = history.history['accuracy'][i]
+        print(f"Epoch {i+1}: val_loss={val_loss:.4f}, val_acc={val_acc:.4f}, " 
+            f"train_loss={train_loss:.4f}, train_acc={train_acc:.4f}, " 
+        )
 
     # Add the accuracy score to the list
     accuracy_scores.append(test_acc)
+    models.append(model)
 
-#compute mean accuracy
-mean_accuracy = np.mean(accuracy_scores)
+best_model_idx = np.argmax(accuracy_scores)
+model = models[best_model_idx]
 
-# Print the validation loss, validation accuracy, test loss, and test accuracy for each epoch
-for i, acc in enumerate(history.history['accuracy']):
-    val_acc = history.history['val_accuracy'][i]
-    val_loss = history.history['val_loss'][i]
-    train_loss = history.history['loss'][i]
-    train_acc = history.history['accuracy'][i]
-    print(f"Epoch {i+1}: val_loss={val_loss:.4f}, val_acc={val_acc:.4f}, " 
-          f"train_loss={train_loss:.4f}, train_acc={train_acc:.4f}, " 
-          )
-print("mean_accuracy for folds: {:.2f}".format(mean_accuracy))
+model.save("model.h5")
+
+print("Model saved successfully")
+
+
