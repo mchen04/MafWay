@@ -15,11 +15,11 @@ y = np.load('labels_array.npy')
 
 #define the object to use for data augmentation
 datagen = ImageDataGenerator(
-    rotation_range=30, # rotate the image by up to 30 degrees
-    width_shift_range=0.15, # shift the image horizontally by up to 10% of the width
-    height_shift_range=0.15, # shift the image vertically by up to 10% of the height
-    shear_range=0.15, # apply shearing transformation with a maximum of 10% shear
-    zoom_range=0.15, # zoom in/out of the image by up to 10%
+    rotation_range=20, # rotate the image by up to 20 degrees
+    width_shift_range=0.15, # shift the image horizontally by up to 15% of the width
+    height_shift_range=0.15, # shift the image vertically by up to 15% of the height
+    shear_range=0.15, # apply shearing transformation with a maximum of 15% shear
+    zoom_range=0.15, # zoom in/out of the image by up to 15%
 )
 
 #ensure the object is in the correct shape
@@ -82,7 +82,7 @@ for fold_idx, (train_index, test_index) in enumerate(kf.split(X)):
         Dense(num_classes, activation='softmax')
     ])
     #.legacy is used for m1 & m2 macs as the non-legacy version is slower
-    model.compile(optimizer=tf.keras.optimizers.legacy.Adam(learning_rate=0.001), 
+    model.compile(optimizer=tf.keras.optimizers.legacy.Adam(learning_rate=0.00001), 
                   loss='categorical_crossentropy', metrics=['accuracy']
                   )
 

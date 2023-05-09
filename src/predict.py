@@ -3,11 +3,15 @@ import numpy as np
 from PIL import Image
 import user_photo_processor
 import keras
+import glob
 
 import os
 
 # Set the path to the input images folder
 input_folder = "user_inputs/"
+
+num_correct_predictions = 0
+total_predictions = 0
 
 # Load the saved model
 model = keras.models.load_model('model.h5')
@@ -20,7 +24,8 @@ class_labels = ['!', '(', ')', '+', ',', '-', '0', '1', '2', '3', '4', '5', '6',
 
 # Loop through all the files in the input folder
 for filename in os.listdir(input_folder):
-    if filename.endswith(".jpg") or filename.endswith(".jpeg") or filename.endswith(".PNG") or filename.endswith(".png"):
+    # Check if the file has an image extension
+    if filename.endswith((".jpg", ".jpeg", ".png", ".PNG")):
         # Load the input image and preprocess it
         input_image = os.path.join(input_folder, filename)
         processed_image = user_photo_processor.process_image(input_image)
@@ -30,7 +35,7 @@ for filename in os.listdir(input_folder):
 
         # Get the predicted class index
         predicted_class_index = np.argmax(predictions[0])
+        predicted_class_label = class_labels[predicted_class_index]
 
         # Print the predicted class label
-        predicted_class_label = class_labels[predicted_class_index]
         print("Predicted class for {}: {}".format(filename, predicted_class_label))
