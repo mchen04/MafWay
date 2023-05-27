@@ -15,7 +15,7 @@ y = np.load('labels_array.npy')
 
 #define the object to use for data augmentation
 datagen = ImageDataGenerator(
-    rotation_range=20, # rotate the image by up to 20 degrees
+    rotation_range=20, # rotate the image by up to 30 degrees
     width_shift_range=0.15, # shift the image horizontally by up to 15% of the width
     height_shift_range=0.15, # shift the image vertically by up to 15% of the height
     shear_range=0.15, # apply shearing transformation with a maximum of 15% shear
@@ -90,7 +90,7 @@ for fold_idx, (train_index, test_index) in enumerate(kf.split(X)):
     reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=5, verbose=2, min_lr=0.00001)
 
     # Train the model
-    history = model.fit(datagen.flow(X_train.reshape((-1, 45, 45, 1)), y_train, batch_size=64),
+    history = model.fit(datagen.flow(X_train.reshape((-1, 45, 45, 1)), y_train, batch_size=128),
                         epochs=35,
                         validation_data=(X_val.reshape((-1, 45, 45, 1)), y_val),
                         callbacks=[reduce_lr])
