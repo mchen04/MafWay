@@ -1,18 +1,17 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
-import { Inter } from 'next/font/google';
-
-const Inty = Inter ({
-  subsets: ['latin'],
-  weight: ['600']
-})
+import type { AppProps } from 'next/app';
+import { useEffect, useState } from 'react';
+import '../styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <div className='bg-ncc-beige'>
-      <div className={Inty.className}>
-          <Component {...pageProps} />
-      </div>
-    </div>
-  );
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
+  return <Component {...pageProps} />;
 }
