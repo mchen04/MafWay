@@ -4,8 +4,7 @@
 MafWays is an innovative project developed at CitrusHack that leverages Artificial Intelligence for mathematical formula recognition. Our system specializes in image recognition technology, particularly focused on identifying and interpreting mathematical expressions. This project represents a step forward in making mathematical content more accessible and digitally manageable.
 
 ## Demo
-Watch our project demonstration:
-[MafWays Demo Video](https://www.youtube.com/watch?v=1EdeTjw41lw&t=36s)
+[![MafWays Demo Video](https://img.youtube.com/vi/1EdeTjw41lw/0.jpg)](https://www.youtube.com/watch?v=1EdeTjw41lw&t=36s)
 
 ## Features
 - Advanced image recognition for mathematical formulas
